@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit table </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/table.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+   <div class="sear_btn">
+       <input type="search" id="search" placeholder="Search here">
+       <span class="glyphicon glyphicon-search"> </span>
+        </input>
+   </div>
+             
+  <table class="table table-bordered" id="tblData">
+    <thead>
+      <tr id="firstnot">
+       <th><input type="checkbox" id="checkAll"></th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr>
+        <td><input type="checkbox"></td>
+        <td><label>John</label></td>
+        <td><label>Doe</label></td>
+        <td><label>john@example.com</label></td>
+        <td><button class="btn btn-info edit">Edit</button></td>
+        <td><button class="btn btn-danger delete">Delete </button></td>
+
+      </tr>
+
+
+      <tr>
+        <td><input type="checkbox"></td>
+        <td><label>Mary</label></td>
+        <td><label>Moe</label></td>
+        <td><label>mary@example.com</label></td>
+        <td><button class="btn btn-info edit">Edit</button></td>
+        <td><button class="btn btn-danger delete">Delete </button> </td>
+      </tr>
+
+
+      <tr>
+      <td><input type="checkbox"></td>
+        <td><label>July</label></td>
+        <td><label>Dooley</label></td>
+        <td><label>july@example.com</label></td>
+        <td><button class="btn btn-info edit">Edit</button></td>
+        <td><button class="btn btn-danger delete">Delete </button></td>
+      </tr>
+
+
+     <tr>
+     <td><input type="checkbox"></td>
+        <td><label>Sony</label></td>
+        <td><label>Das</label></td>
+        <td><label>sony@example.com</label></td>
+        <td><button class="btn btn-info edit">Edit</button></td>
+        <td><button class="btn btn-danger delete">Delete</button></td>
+      </tr>
+
+
+    </tbody>
+  </table>
+
+   <button class="add">ADD ROW</button>
+   
+</div>
+
+</body>
+</html>
