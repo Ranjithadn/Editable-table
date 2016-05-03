@@ -1,0 +1,27 @@
+   tr:hover{background:#fbf2f2;}
+   .backgr{background-color: yellow; }
+   td label{font-weight: 400 !important;}
+   .add{background: #1e5799; border:none; width:95px; color:white; font-weight: 800; height: 35px; border-radius: 15px; box-shadow: 1px 3px 6px gray;}
+   .sear_btn input
+
+   {
+    float: right;
+    width: 250px;
+    height: 35px;
+    margin: 10px 0;
+    border: 1px solid brown;
+    padding-left: 40px;
+    font-size: 17px;
+    position:relative;
+  }
+.glyphicon {
+    position: absolute;
+    right: 303px;
+    top: 18px;
+    color:green;
+    font-size:20px;
+  }
+
+  .trbackground{background-color: #ebf4d0; }
+   #firstnot {background-color: #eeeeee ;}
+   #tg{color:red;}
