@@ -2,7 +2,7 @@
   $(document).ready(function(){
 
    /*Addition of row*/
-  var secondcoldrop=["Saab", "Volvo", "BMW"];
+  var secondcoldrop=["Saab", "Volvo", "BMW", "John"];
       
   $(".add").click(function(){
 
@@ -18,12 +18,16 @@
          {
          alert("Please fillup All fields");
         
-  }
-   else{
+        }//
+   else
+   {
         $(this).parents("tr").children("td:eq(" +i+ ")").html('<label> '+ val +' </label>');
         $(this).parents("tr").find("input:text").hide();
          
-    }}
+    }//
+
+  }//
+
 
     $(this).parents("tr td").siblings().children("button").replaceWith("<button class='btn btn-danger delete'>Delete</button>");
 
@@ -46,38 +50,72 @@
 
      $(document).on("click", "button.edit" , function() {
      var  n = $(this).parents("tr").children("td").size();
+      console.log("edit");
+       for(var i=1; i<=n-3; i++)
+       {
 
-       for(i=1; i<=n-3; i++){
-         var lab = $(this).parents("tr").find("td:eq(" +i+ ")").text();
-         $(this).parents("tr").find("label").hide();
+         var lab = $(this).parents("tr").children("td:eq(" +i+ ")").find("label").text();
+         //console.log(lab, i);
+         $(this).parents("tr").children("td:eq(" +i+ ")").children("label").hide(); 
+         var value = $(this).parents("tr").children("td:eq(" +i+ ")").data('inputtype');
+        
+             if(value=="dropdown")
+             {
+               console.log(lab, i);
+                 
+                 
+                      
+                       var hasvalue=$(this).parents("tr").children("td:eq(" +i+ ")").children("select");
+                       console.log(hasvalue);
+                       if(hasvalue)
+                       {
+                           $(this).parents("tr").find("td:eq(" +i+ ")").children("select").remove(); 
+                       }
 
-         var value=$(".inr").data('inputtype');
+                    else{
+                       var dropdownopt=eval($(this).parents("tr").children("td:eq(" +i+ ")").data('optionlist'));
+                       $(this).parents("tr").children("td:eq(" +i+ ")").append('<select>') ;
+                       
+                       for(var j=0; j<dropdownopt.length; j++)
 
-         if(value=="dropdown"){
+                       {
+                            
+                           console.log (typeof(lab), typeof(dropdownopt[j]));
+                            console.log (lab.length, dropdownopt[j].length);
+                           
+                           if(lab==dropdownopt[j])
+                             {
+                               
+                               $(this).parents("tr").children("td:eq(" +i+ ")").children("select").append('<option selected>'+lab+'</option>');  
+                             }
+                            
+                           else
+                             { 
+                          
+                               $(this).parents("tr").find("td:eq(" +i+ ")").children("select").append('<option>'+dropdownopt[j]+'</option>');
+                             }
+                      }
+                         
            
-            var dropdownopt=eval($(".inr").data('optionlist'));
-            console.log(dropdownopt);
 
-            
-            $(this).parents("tr").children("td:eq(" +i+ ")").append('<select>') ;
-            
-            for(var i=0; i<dropdownopt.length; i++)
-            {
-                console.log(dropdownopt[i]);    
+                $(this).parents("tr").find("td:eq(" +i+ ")").children("select").append('</select>') ;
+        
            
-            $("select").append('<option>' +dropdownopt[i]+ '</option>');
-            }//
+           }
+           
+          }
 
-            $("select").append('</select>') ;
-         
-  }
-     else{
 
-         $(this).parents("tr").children("td:eq(" +i+ ")").html('<input type="text" value=" '+lab+' ">');
+
+          else
+         {
+        
+           $(this).parents("tr").children("td:eq(" + i + ")").append('<input type="text" value="'+lab+'">');
          
          }//
 
-   } //
+
+    } //
 
     
      $(this).parents("tr td").siblings().children("button").replaceWith("<button class='btn btn-warning cancel_btn'>Cancel</button>");
@@ -86,10 +124,28 @@
     /*Saving after Edit*/
 
      $(document).on("click", ".save" , function() {
+
       for(i=1; i<=n-3; i++){
-         var val = $(this).parents("tr").children("td:eq(" +i+ ")").find("input:text").val();
-         $(this).parents("tr").find("input:text").hide();
-         $(this).parents("tr").children("td:eq(" +i+ ")").html('<label> '+ val +' </label>');
+         
+          
+          var value = $(this).parents("tr").children("td:eq(" +i+ ")").data('inputtype');
+          if(value=="dropdown")
+             {
+               var optval= $(this).parents("tr").children("td:eq(" +i+ ")").children("select").find("option:selected").text();
+               console.log(optval);
+               $(this).parents("tr").children("td:eq(" +i+ ")").find("select").hide();
+               $(this).parents("tr").children("td:eq(" +i+ ")").append('<label>'+optval+'</label>');
+            
+             }
+
+
+
+         else
+         {
+          $(this).parents("tr").find("input:text").hide();
+          var val = $(this).parents("tr").children("td:eq(" +i+ ")").find("input:text").val();
+          $(this).parents("tr").children("td:eq(" +i+ ")").html('<label>'+val+'</label>');
+         }
      }
          $(this).parents("tr td").siblings().children("button").replaceWith("<button class='btn btn-danger delete'>Delete</button>");
          $(this).replaceWith("<button class='btn btn-info edit'>Edit</button>");
@@ -102,11 +158,24 @@
     $('.cancel_btn').click(function(){
 
      for(i=1; i<=n-3; i++){
-         var lab = $(this).parents("tr").find("td:eq(" +i+ ")").text();
-         $(this).parents("tr").find("input:text").hide();
-         $(this).parents("tr").children("td:eq(" +i+ ")").html('<label> '+ lab +' </label>');
-    }
+        var lab; 
+        var value = $(this).parents("tr").children("td:eq(" +i+ ")").data('inputtype');
+         
+          if(value=="dropdown")
+             {
+                lab = $(this).parents("tr").children("td:eq(" +i+ ")").find("label").text();
+                $(this).parents("tr").children("td:eq(" +i+ ")").find("select").hide();
+             }
 
+      else{
+         lab = $(this).parents("tr").children("td:eq(" +i+ ")").find("label").text();
+         
+         $(this).parents("tr").find("input:text").hide();   
+         }
+
+    $(this).parents("tr").children("td:eq(" +i+ ")").html('<label>'+lab+'</label>');
+         
+    }
     $(this).parents("tr td").siblings().children(".save").replaceWith("<button class='btn btn-info edit'>Edit</button>");
     $(this).replaceWith("<button class='btn btn-danger delete'>Delete</button>");
 
