@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".nav li").click(function(){
+
+if($(".nav li").hasClass(".active")) {
+    $(".nav li").removeClass(".active");
+    $(this).addClass(".active");
+}
+else {  
+    $(this).addClass(".active");
+}
+ });
+
+    
+});
+       
+       
+    
+
+</script>
+
+<style type="text/css">
+
+
+
+.active{background-color:white;}
+
+body{
+padding: 15px 50px;
+}
+ nav {    
+  display: block;
+ 
+}
+nav ul {
+  margin: 0;
+  padding:0;
+  list-style: none;
+}
+.nav a {
+  display:block; 
+  background: #18AAC4; 
+  color: #fff; 
+  text-decoration: none;
+  padding: 0.8em 1.8em;
+  text-transform: uppercase;
+  font-size: 82%;
+  letter-spacing: 2px;
+  position: relative;
+  font-family: lato;
+  font-weight: 900 !important;
+  
+}
+.nav{  
+  vertical-align: top; 
+  display: inline-block;
+  box-shadow: 
+    1px -1px -1px 1px #000, 
+    -1px 1px -1px 1px #fff, 
+    0 0 6px 3px #fff;
+  border-radius:6px;
+}
+.nav li {
+  position: relative;
+}
+.nav > li { 
+  float: left; 
+  
+  margin-right: 1px; 
+} 
+.nav > li > a { 
+  margin-bottom: 1px;
+  
+}
+
+.nav > li:hover{
+border-bottom: 4px #aaa solid; 
+}
+.nav  a:hover
+ { 
+  border: 1px #18AAC4 solid; 
+  background: white !important; 
+  color:#18AAC4;
+
+}
+.nav li:hover > a { 
+ 
+}
+.nav > li:first-child { 
+  border-radius: 4px 0 0 4px;
+} 
+.nav > li:first-child > a { 
+  border-radius: 4px 0 0 0;
+}
+.nav > li:last-child { 
+  border-radius: 0 0 4px 0; 
+  margin-right: 0;
+} 
+.nav > li:last-child > a { 
+  border-radius: 0 4px 0 0;
+}
+.nav li li a { 
+  margin-top: 1px;
+}
+
+
+.nav ul {
+  position: absolute;
+  white-space: nowrap;
+  border-bottom: 5px solid  #aaa;
+  z-index: 1;
+  left: -99999em;
+}
+.nav > li:hover > ul {
+  left: auto;
+  margin-top: 5px;
+  min-width: 100%;
+}
+.nav > li li:hover > ul { 
+  left: 100%;
+  margin-left: 1px;
+  top: -1px;
+}
+/* arrow hover styling */
+.nav > li > a:first-child:nth-last-child(2):before { 
+  border-top-color: white ;
+  border: 5px solid transparent;  
+   margin-top: -5px !important;
+}
+.nav > li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-bottom-color: #18AAC4; 
+  margin-top:-5px;
+}
+.nav li li > a:first-child:nth-last-child(2):before {  
+  border-left-color: white ; 
+  margin-top: -5px !important;
+}
+.nav li li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-right-color: #18AAC4;
+  right: 10px; 
+}
+
+
+.nav li a:first-child:nth-last-child(2):before { 
+  content: ""; 
+  position: absolute; 
+  height: 0; 
+  width: 0; 
+  border: 5px solid transparent; 
+  top: 50% ;
+  right:5px;  
+ }
+  .logo{float:left;}
+   .login{float:right; padding-top: 13px;}
+
+   .nav>li>a {
+   
+    padding: 10px 27px!important;
+}
+.login a:after{content:""; border-right:1px solid #aaa; height:30px; margin: 0px 5px 0px 8px;}
+.login a:last-child:after{border-right:none;}
+header{padding-bottom: 10px;}
+
+	</style>
+</head>
+
+<body>
+
+   <header>
+   <div class="row">
+    <div class="logo"> 
+       <img src="image/zotey-logo.png">
+    </div>
+  <div class="login"> 
+    <a href="">Logged in as </a>
+    <a href="">Change password</a>
+    <a href="">Logout</a>
+  
+ 
+   </div> 
+    </div> 
+   </header>
+
+
+
+<div class="row">
+  <nav>
+
+  <ul class="nav">
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Lab Administration</a>
+      <ul>
+        <li><a href="#">item</a></li>
+        <li><a href="#">item</a>
+
+           <ul>
+            <li><a href="#">Ray</a></li>
+            <li><a href="#">Veronica</a>
+
+           <ul>
+            <li><a href="#">Ray</a>
+
+            <ul>
+            <li><a href="#">Ray</a></li>
+            <li><a href="#">Veronica</a></li>
+            
+          </ul>
+
+            </li>
+            <li><a href="#">Veronica</a></li>
+            <li><a href="#">Bushy</a></li>
+            <li><a href="#">Havoc</a></li>
+          </ul>
+            </li>
+            <li><a href="#">Bushy</a></li>
+            <li><a href="#">Havoc</a></li>
+          </ul>
+
+        </li>
+        <li><a href="#">item</a></li>
+        <li><a href="#">item</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Areas and Pincodes</a>
+      <ul>
+        <li><a href="#">Manage Area Names</a></li>
+        <li><a href="#">Manage Pincodes</a>
+          <ul>
+            <li><a href="#">Ray</a></li>
+            <li><a href="#">Veronica</a></li>
+            <li><a href="#">Bushy</a></li>
+            <li><a href="#">Havoc</a></li>
+          </ul>
+        </li>
+        <li><a href="#">item</a></li>
+        <li><a href="#">item</a></li>
+      </ul>
+    </li>
+   
+    <li><a href="#">Manage Consultations</a>
+      <ul>
+        <li><a href="#">L ist Consultations</a></li>
+        <li><a href="#">Add New Consultation</a></li>
+        
+      </ul>
+    </li>
+
+
+ 
+
+   
+    <li><a href="#">Data Imports</a></li>
+    <li><a href="#">Lab Network Maps</a></li>
+  </ul>
+</nav>
+</div>
+</body>
+</html>
