@@ -1,10 +1,9 @@
 
-$(document).ready(function()
-{
-  var secondcoldrop=["Saab", "Volvo", "BMW", "John"];
+
+  var secondcoldrop=["Saab", "Volvo", "BMW", "John", "Mary"];
 
   /*Addition of row*/
-  $(".add").click(function()
+  function add_row_handler()
   {
 
 
@@ -12,7 +11,7 @@ $(document).ready(function()
        $('.save').click(function()
        {
           var  n = $(this).parents("tr").children("td").size();
-          for(i=1; i<=n-3; i++)
+          for(i=1; i<=n-12; i++)
           {
               var val = $(this).parents("tr").children("td:eq(" +i+ ")").find("input:text").val();
               if (val=="" || val==null)
@@ -29,20 +28,21 @@ $(document).ready(function()
           $(this).parents("tr td").siblings().children("button").replaceWith("<button class='btn btn-danger delete'>Delete</button>");
           $(this).replaceWith("<button class='btn btn-info edit'>Edit</button>");
      });
-  });
+  }
 
  /*Deletion of row*/
-  $(document).on("click", "button.delete" , function() 
+   function delete_row_handler() 
   {
      $(this).parents("tr").remove();
-  });
+  }
 
  /*Edit of row*/
-  $(document).on("click", "button.edit" , function()
+  function edit_row_handler()
    {
      var n = $(this).parents("tbody").siblings("thead").find("th").size();
-     for(var i=1; i<=n-3; i++)
-     {
+     for(var i=0; i<=n-12; i++){
+     var input_box=$(this).parents("tr").children("td:eq(" +i+ ")").data('input');
+     
          var lab = $(this).parents("tr").children("td:eq(" +i+ ")").find("label").text();
          $(this).parents("tr").children("td:eq(" +i+ ")").children("label").hide(); 
          var value = $(this).parents("tr").children("td:eq(" +i+ ")").data('inputtype');
@@ -94,11 +94,12 @@ $(document).ready(function()
     } //loop through td's end
     $(this).parents("tr td").siblings().children("button").replaceWith("<button class='btn btn-warning cancel_btn'>Cancel</button>");
     $(this).replaceWith("<button class='btn btn-primary save'>Save</button>");
-
+}//
   /*Saving after Edit*/
-  $(document).on("click", ".save" , function() 
+   function save_btn_handler() 
   {
-     for(i=1; i<=n-3; i++)
+     var  n = $(this).parents("tr").children("td").size();
+     for(i=0; i<=n-12; i++)
      {
          var value = $(this).parents("tr").children("td:eq(" +i+ ")").data('inputtype');
          if(value=="dropdown")
@@ -116,12 +117,13 @@ $(document).ready(function()
      }//loop through td's end
          $(this).parents("tr td").siblings().children("button").replaceWith("<button class='btn btn-danger delete'>Delete</button>");
          $(this).replaceWith("<button class='btn btn-info edit'>Edit</button>");
-  });//
+  }//
 
   /*Canceling after Edit*/
-  $('.cancel_btn').click(function()
+ function cancel_btn_handler() 
   { 
-     for(i=1; i<=n-3; i++)
+     var  n = $(this).parents("tr").children("td").size();
+     for(i=0; i<=n-12; i++)
      {
         var lab=$(this).parents("tr").children("td:eq(" +i+ ")").find("label").text(); 
         var value = $(this).parents("tr").children("td:eq(" +i+ ")").data('inputtype');
@@ -137,8 +139,8 @@ $(document).ready(function()
      }//for looping of td end
      $(this).parents("tr td").siblings().children(".save").replaceWith("<button class='btn btn-info edit'>Edit</button>");
      $(this).replaceWith("<button class='btn btn-danger delete'>Delete</button>");
-  });//
-});//
+  }//
+
 
   /*Select All table rows*/
   $("#checkAll").change(function () 
@@ -206,6 +208,6 @@ $(document).ready(function()
   });//
 }//
 
-});//
+
 
 
