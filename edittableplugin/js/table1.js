@@ -2,7 +2,6 @@ var host_api = "http://beta.zotey.com" ;
 var param_csv_file_id=1;
 var final_csv_data;
 
-
   function deletedbtn_handler(){
     var deleted_text_value=$(this).text();
     var i=$(this).parents("tr").index();
@@ -49,7 +48,7 @@ var final_csv_data;
                      var csv_cell_label5=document.createElement('label');
                      var csv_deleted_btn=document.createElement('button');
                      $(csv_deleted_btn).text(data.csv_data[i].deleted);
-                     $(csv_deleted_btn).addClass('del_btn');
+                     //$(csv_deleted_btn).addClass('del_btn');
                      $(csv_deleted_btn).on("click", deletedbtn_handler);
                      var deleted_value=data.csv_data[i].deleted;
                      if(deleted_value=="yes"){
